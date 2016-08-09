@@ -3,6 +3,6 @@ package abstractFactory.Ingredients
 /**
   * Created by david on 8/08/16.
   */
-class PlumTomatoSauce extends Sauce{
+class PlumTomatoSauce extends Sauce {
 
 }

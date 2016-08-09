@@ -1,34 +1,29 @@
 package abstractFactory.Pizzas
 
-import java.util
-
-import scala.collection.JavaConverters._
+import abstractFactory.Ingredients._
 
 /**
   * Created by david on 8/08/16.
   */
 abstract class Pizza {
-  var name: String
-  var dough: String
-  var sauce: String
-  var topping: util.ArrayList[String] = new util.ArrayList[String]()
+  var name: String = _
+  var dough: Dough = _
+  var sauce: Sauce = _
+  var veggies: Array[Veggies] = _
+  var cheese: Cheese = _
+  var pepperoni: Pepperoni = _
+  var clam: Clams = _
 
-  def prepare = {
-    println()
-    println("Preparing " + name)
-    println("Adding dough" + dough)
-    println("Adding sauce..." + sauce)
-    println("Adding toppings: ")
-    for(t <- topping.asScala) println(t)
-
-    println()
-  }
+  def prepare
 
   def bake = println("Bake for 25 minutes at 350")
 
-  def cut = println("Cutting the piza into diagonal slices")
+  def cut = println("Cutting the pizza into diagonal slices")
 
   def box = println("Place pizza in official PizzaStore box")
 
   def getName: String = name
+  def setName(name: String) = this.name = name
+
+  override def toString = "Pizza " + this.name
 }

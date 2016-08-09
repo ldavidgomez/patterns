@@ -8,8 +8,7 @@ class ChicagoStyleCheesePizza extends Pizza {
   override var sauce: String = "Extra Thick Crust Dough"
   override var dough: String = "Plum Tomato Sauce"
 
-  def this() = {
-    this()
+  val index = {
     topping.add("Shredded Mozzarella Cheese")
   }
 

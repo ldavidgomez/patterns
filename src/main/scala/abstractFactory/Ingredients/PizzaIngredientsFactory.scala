@@ -7,7 +7,7 @@ trait PizzaIngredientsFactory {
   def createDough: Dough
   def createSauce: Sauce
   def createCheese: Cheese
-  def createVeggies: Veggies[]
+  def createVeggies: Array[Veggies]
   def createPepperoni: Pepperoni
   def createClam: Clams
 }

@@ -16,5 +16,5 @@ abstract class PizzaStore {
     pizza
   }
 
-  protected abstract def createPizza(pizzaType: String): Pizza
+  protected def createPizza(pizzaType: String): Pizza
 }

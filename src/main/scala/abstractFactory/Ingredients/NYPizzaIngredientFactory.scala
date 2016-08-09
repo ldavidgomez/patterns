@@ -8,7 +8,7 @@ class NYPizzaIngredientFactory extends PizzaIngredientsFactory{
 
   override def createCheese: Cheese = new MozzarellaCheese
 
-  override def createVeggies: Array[Veggies] = Array(new Garlic, new Onion, new Mushroom, new RedPepper)
+  override def createVeggies: Array[Veggies] = Array(new Garlic, new Onion)
 
   override def createPepperoni: Pepperoni = new SlicedPepperoni
 

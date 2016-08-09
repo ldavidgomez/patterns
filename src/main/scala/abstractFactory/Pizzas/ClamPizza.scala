@@ -13,5 +13,7 @@ class ClamPizza(ingredientFactory: PizzaIngredientsFactory) extends Pizza {
     dough = ingredientFactory.createDough
     sauce = ingredientFactory.createSauce
     cheese = ingredientFactory.createCheese
+    veggies = ingredientFactory.createVeggies
+    clam = ingredientFactory.createClam
   }
 }
