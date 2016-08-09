@@ -123,4 +123,29 @@ class CommandSuit extends FunSuite {
 
     assert(ceilingFan.speed == CeilingFan.MEDIUM)
   }
+
+  test("Macro Command test some commands") {
+    val remote: RemoteControlWithUndo = new RemoteControlWithUndo
+
+    val light: Light = new Light
+    val stereo: Stereo = new Stereo
+    val lightOn: LightOnCommand = new LightOnCommand(light)
+    val lightOff: LightOffCommand = new LightOffCommand(light)
+    val stereoOn: StereoOnWithCDCommand = new StereoOnWithCDCommand(stereo)
+    val stereoOff: StereoOffCommand = new StereoOffCommand(stereo)
+
+    val partyOn: Array[Command] = Array(lightOn, stereoOn)
+    val partyOff: Array[Command] = Array(lightOff, stereoOff)
+
+    val partyOnMacro: MacroCommand = new MacroCommand(partyOn)
+    val partyOffMacro: MacroCommand = new MacroCommand(partyOff)
+
+    remote.setCommand(0, partyOnMacro, partyOffMacro)
+
+    println(remote)
+
+    remote.onButtonWasPushed(0)
+
+    assert(partyOnMacro.commands.length == 2)
+  }
 }
