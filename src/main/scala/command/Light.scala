@@ -5,6 +5,7 @@ package command
   */
 class Light {
   var state: String = _
+  
   def on = {
     state = "on"
     println("Light on")

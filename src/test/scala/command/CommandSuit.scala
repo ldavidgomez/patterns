@@ -12,7 +12,7 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class CommandSuit extends FunSuite {
 
-  test("light on") {
+  test("Simple command light on") {
     val remote: SimpleRemoteControl = new SimpleRemoteControl
     val light: Light = new Light
     val lightOn: LightOnCommand = new LightOnCommand(light)
@@ -22,7 +22,7 @@ class CommandSuit extends FunSuite {
     assert(light.state.eq("on"))
   }
 
-  test("light off") {
+  test("Simple command light off") {
     val remote: SimpleRemoteControl = new SimpleRemoteControl
     val light: Light = new Light
     val lightOff: LightOffCommand = new LightOffCommand(light)
@@ -31,4 +31,24 @@ class CommandSuit extends FunSuite {
     remote.buttonWasPressed
     assert(light.state.eq("off"))
   }
+
+//  test("Command Stereo on") {
+//    val remote: SimpleRemoteControl = new SimpleRemoteControl
+//    val light: Light = new Light
+//    val lightOn: LightOnCommand = new LightOnCommand(light)
+//
+//    remote.setCommand(lightOn)
+//    remote.buttonWasPressed
+//    assert(light.state.eq("on"))
+//  }
+//
+//  test("Simple command light off") {
+//    val remote: SimpleRemoteControl = new SimpleRemoteControl
+//    val light: Light = new Light
+//    val lightOff: LightOffCommand = new LightOffCommand(light)
+//
+//    remote.setCommand(lightOff)
+//    remote.buttonWasPressed
+//    assert(light.state.eq("off"))
+//  }
 }
