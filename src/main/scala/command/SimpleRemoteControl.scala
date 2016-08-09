@@ -1,5 +1,7 @@
 package command
 
+import command.Commands.Command
+
 /**
   * Created by david on 9/08/16.
   */

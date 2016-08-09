@@ -1,6 +1,6 @@
-package command
+package command.Commands
 
-import scala.collection.concurrent.RDCSS_Descriptor
+import command.Stereo
 
 /**
   * Created by david on 9/08/16.
@@ -13,4 +13,6 @@ class StereoOnWithCDCommand(s: Stereo) extends Command {
     stereo.setCD
     stereo.setVolume(11)
   }
+
+  override def undo: Unit = stereo.off
 }

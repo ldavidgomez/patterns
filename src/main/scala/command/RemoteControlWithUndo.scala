@@ -5,8 +5,9 @@ import command.Commands.{Command, NoCommand}
 /**
   * Created by david on 9/08/16.
   */
-class RemoteControl {
+class RemoteControlWithUndo {
   val noCommand: NoCommand = new NoCommand
+  var undoCommand: Command = noCommand
   var onCommands: Array[Command] = Array.fill[Command](7)(noCommand)
   var offCommands: Array[Command]  = Array.fill[Command](7)(noCommand)
 
@@ -15,8 +16,18 @@ class RemoteControl {
     offCommands.update(slot, offCommand)
   }
 
-  def onButtonWasPushed(slot: Int) = onCommands(slot).execute
-  def ofButtonWasPushed(slot: Int) = offCommands(slot).execute
+  def onButtonWasPushed(slot: Int) = {
+    onCommands(slot).execute
+    undoCommand = onCommands(slot)
+  }
+  def offButtonWasPushed(slot: Int) = {
+    offCommands(slot).execute
+    undoCommand = offCommands(slot)
+  }
+
+  def undoButtonWasPushed = {
+    undoCommand.undo
+  }
 
   override def toString: String = {
     val sb: StringBuffer = new StringBuffer()
