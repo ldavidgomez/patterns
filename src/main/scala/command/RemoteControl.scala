@@ -5,8 +5,8 @@ package command
   */
 class RemoteControl {
   val noCommand: NoCommand = new NoCommand
-  var onCommands: Array[Command] = new Array[Command](7)(noCommand)
-  var offCommands: Array[Command]  = new Array(7)(noCommand)
+  var onCommands: Array[Command] = Array.fill[Command](7)(noCommand)
+  var offCommands: Array[Command]  = Array.fill[Command](7)(noCommand)
 
   def setCommand(slot: Int, onCommand: Command, offCommand: Command): Unit = {
     onCommands.update(slot, onCommand)
